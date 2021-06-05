@@ -1,0 +1,7 @@
+# Directories
+.terraform/
+
+# Files
+*.state
+*.tfstate
+*.lock.hcl
