@@ -18,7 +18,8 @@ networking = {
       ip_cidr_range = "10.46.100.0/23"
       description = "Private subnets; first region."
     }
-  }
+  },
+  private_subnets = [ "10.46.100.0/23" ]
 }
 
 bastion_settings = {
