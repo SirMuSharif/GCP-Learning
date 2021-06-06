@@ -18,6 +18,10 @@ variable "bastion_settings" {
   description = "All Bastion Compute settings."
 }
 
+variable "k3s_settings" {
+  description = "All K3s worker compute settings."
+}
+
 variable "ssh_username" {
   description = "Username for the SSH public key to authenticate with."
 }

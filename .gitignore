@@ -6,3 +6,4 @@
 *.tfstate
 *.lock.hcl
 *.info
+*.backup

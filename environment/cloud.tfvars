@@ -24,9 +24,18 @@ networking = {
 bastion_settings = {
   "vm_type" = "e2-micro"
   "boot_disk_size" = 20
-  "host-os" = "ubuntu-os-cloud/ubuntu-1804-bionic"
+  "host-os" = "ubuntu-os-cloud/ubuntu-1804-lts"
   "network" = {
     "subnetwork" = "homelab-public-1a"
     "tier" = "STANDARD"
+  }
+}
+
+k3s_settings = {
+  "vm_type" = "e2-micro"
+  "boot_disk_size" = 32
+  "host-os" = "ubuntu-os-cloud/ubuntu-1804-lts"
+  "network" = {
+    "subnetwork" = "homelab-private-1a"
   }
 }

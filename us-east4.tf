@@ -67,3 +67,37 @@ resource "google_compute_instance" "bastion" {
     sshKeys = "${var.ssh_username}:${var.ssh_pubkey}"
   }
 }
+
+resource "google_compute_instance" "k3s_worker" {
+  name = "k3s-worker"
+  machine_type = var.k3s_settings["vm_type"]
+  zone = "${var.google_project_region}-a"
+
+  tags = [ "k3s", "private" ]
+
+  boot_disk {
+    initialize_params {
+      image = var.k3s_settings["host-os"]
+      size  = var.k3s_settings["boot_disk_size"]
+    }
+  }
+
+  network_interface {
+    subnetwork = var.k3s_settings["network"]["subnetwork"]
+  }
+
+  metadata = {
+    sshKeys = "${var.ssh_username}:${var.ssh_pubkey}"
+  }
+}
+
+###############################################################################
+### OUTPUTS
+
+output "bastion_public_ip_address" {
+  value = google_compute_instance.bastion.network_interface.0.access_config.0.nat_ip
+}
+
+output "k3s_worker_private_ip_address" {
+  value = google_compute_instance.bastion.network_interface.0.network_ip
+}

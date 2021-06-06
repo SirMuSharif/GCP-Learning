@@ -15,3 +15,4 @@ I guess I'll find out soon! 🙂
 ## References
 
 - [Adding SSH Keys in VM Metadata](https://github.com/hashicorp/terraform/issues/6678)
+- [Terraform Compute Reference](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance)
