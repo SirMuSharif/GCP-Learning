@@ -22,8 +22,24 @@ resource "google_compute_subnetwork" "private_subnet" {
   region = var.google_project_region
   network = google_compute_network.vpc.id
 }
-###############################################################################
 
+###############################################################################
+### FIREWALL
+resource "google_compute_firewall" "bastion" {
+  name = "bastion-firewall"
+  network = google_compute_network.vpc.name
+
+  allow {
+    protocol = "icmp"
+  }
+
+  allow {
+    protocol = "tcp"
+    ports = ["22"]
+  }
+}
+
+###############################################################################
 ### Virtual Machines
 resource "google_compute_instance" "bastion" {
   name = "bastion"
