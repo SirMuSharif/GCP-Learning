@@ -6,6 +6,7 @@ resource "google_compute_router" "nat_router" {
   name    = "outbound-nat-router"
   region   = var.google_project_region
   network = google_compute_network.vpc.id
+
   bgp {
     asn = 64514
   }

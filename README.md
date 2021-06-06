@@ -6,6 +6,11 @@ As I've been doing a **lot** with Terraform recently, I have been finding myself
 
 I guess I'll find out soon! 🙂
 
+## Requirements & Expectations
+
+* [Install the Google Cloud SDK](https://cloud.google.com/sdk/docs/install)
+* Log into your Google Cloud account in your terminal **BEFORE** continuing.
+
 ## How to run everything
 
 First, we'll need to make sure that we create a bucket for our state-file ahead of time.
