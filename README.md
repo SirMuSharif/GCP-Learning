@@ -8,6 +8,16 @@ I guess I'll find out soon! 🙂
 
 ## How to run everything
 
+First, we'll need to make sure that we create a bucket for our state-file ahead of time.
+
+```bash
+gsutil mb -p "$google_project_id" -l "$region" -b on gs://$unique_bucket_name
+```
+
+Then, make sure that you edit the `provider.tf` file and change the Terraform GCS bucket name to match the `$unique_bucket_name`.
+
+Then, you can proceed into creating all of the infrastructure.
+
 1. Replace your variables in `environment/cloud.tfvars` with the relevant and appropriate values for your environment.
 2. Run `terraform init`
 3. Run `terraform plan -var-file="environment/cloud.tfvars"` to check the plan.

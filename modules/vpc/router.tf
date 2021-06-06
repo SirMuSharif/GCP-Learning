@@ -26,7 +26,7 @@ resource "google_compute_router_nat" "outbound_nat" {
   dynamic "subnetwork" {
     for_each = var.networking["vpc_private_subnets"]
     content {
-      name = "https://www.googleapis.com/compute/v1/${google_compute_subnetwork.private_subnet[subnetwork.key].id}"
+      name = google_compute_subnetwork.private_subnet[subnetwork.key].id
       source_ip_ranges_to_nat = [ "ALL_IP_RANGES" ] 
     }
   }
