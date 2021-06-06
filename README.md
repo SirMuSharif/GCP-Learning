@@ -11,3 +11,7 @@ I guess I'll find out soon! 🙂
 1. Replace your variables in `environment/cloud.tfvars` with the relevant and appropriate values for your environment.
 2. Run `terraform plan -var-file="environment/cloud.tfvars"` to check the plan.
 3. Run `terraform apply -var-file="environment/cloud.tfvars"` to create the resources.
+
+## References
+
+- [Adding SSH Keys in VM Metadata](https://github.com/hashicorp/terraform/issues/6678)

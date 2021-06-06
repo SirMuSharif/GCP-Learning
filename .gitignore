@@ -5,3 +5,4 @@
 *.state
 *.tfstate
 *.lock.hcl
+*.info

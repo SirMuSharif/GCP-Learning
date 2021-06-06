@@ -14,6 +14,14 @@ variable "networking" {
 }
 
 # Compute
+variable "bastion_settings" {
+  description = "All Bastion Compute settings."
+}
+
+variable "ssh_username" {
+  description = "Username for the SSH public key to authenticate with."
+}
+
 variable "ssh_pubkey" {
   description = "The SSH Public Key to install onto cloud hosts for remote access."
 }
