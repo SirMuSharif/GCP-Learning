@@ -6,6 +6,6 @@ locals {
   }
   k3s_worker = {
     // Output the K3s worker private IP Address.
-    private_ip = google_compute_instance.bastion.network_interface.0.network_ip
+    private_ip = google_compute_instance.k3s_worker.network_interface.0.network_ip
   }
 }
