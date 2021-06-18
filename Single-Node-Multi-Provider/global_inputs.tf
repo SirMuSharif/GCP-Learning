@@ -5,7 +5,3 @@ variable "cloud_auth" {
 variable "ssh_auth" {
   description = ""
 }
-
-variable "digitalocean" {
-  description = ""
-}

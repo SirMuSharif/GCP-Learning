@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 provider "digitalocean" {
-  token = file("~/.digitalocean/token")
+  token = chomp(file("~/.digitalocean/token"))
 }
 
 provider "google" {
