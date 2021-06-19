@@ -7,7 +7,7 @@ resource "google_compute_instance" "bastion" {
   machine_type = var.bastion_settings["vm_type"]
   zone = "${var.google_project_region}-a"
 
-  tags = [ "bastion", "public" ]
+  tags = [ "k3s", "public" ]
 
   boot_disk {
     initialize_params {
@@ -18,7 +18,7 @@ resource "google_compute_instance" "bastion" {
 
   network_interface {
     subnetwork = var.bastion_settings["network"]["subnetwork"]
-s
+
     access_config {
       network_tier = var.bastion_settings["network"]["tier"]
     }
