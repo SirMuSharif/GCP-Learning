@@ -1,8 +1,8 @@
 provider "aws" {
   // Ensure that you've set up your ~/.aws/credentials.conf file.
   // Set the region and profile name here.
-  region = var.auth.aws_region
-  profile = var.auth.aws_profile
+  region = var.cloud_auth.aws_region
+  profile = var.cloud_auth.aws_profile
 }
 
 provider "digitalocean" {
@@ -13,6 +13,6 @@ provider "digitalocean" {
 
 provider "google" {
   // Ensure you set your Google Project ID and Region here.
-  project = var.auth.google_project_id
-  region  = var.auth.google_project_region
+  project = var.cloud_auth.google_project_id
+  region  = var.cloud_auth.google_project_region
 }

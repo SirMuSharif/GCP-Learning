@@ -25,12 +25,10 @@ digitalocean = {
 }
 
 google_cloud = {
-  networking = {
-    "vpc_public_subnets" = {
-      "homelab-public-1a" = {
-        ip_cidr_range = "10.46.0.0/23"
-        description   = "Public facing subnet; first region."
-      }
+  "vpc_public_subnets" = {
+    "homelab-public-1a" = {
+      ip_cidr_range = "10.46.0.0/23"
+      description   = "Public facing subnet; first region."
     }
   },
   compute = [
