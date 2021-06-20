@@ -11,6 +11,7 @@ module "google_cloud_networking" {
   google_project_region = var.cloud_auth.google_project_region
 
   // Networking Settings
+  vpc_name              = var.google_cloud.vpc_name
   vpc_public_subnets    = var.google_cloud.vpc_public_subnets
 }
 
@@ -23,21 +24,13 @@ module "google_cloud_fw_ingress" {
   google_project_region = var.cloud_auth.google_project_region
 
   // Firewall Settings
-  name = "k3s-ingress"
+  name = var.google_cloud.ingress_rules.name
   network = module.google_cloud_networking.vpc_name
-  direction = "ingress" 
-  target_tags = ["k3s"]
+  direction = var.google_cloud.ingress_rules.direction
+  target_tags = var.google_cloud.ingress_rules.target_tags
 
   // Allow Blocks
-  allow_blocks = {
-    icmp = {
-      protocol = "icmp"
-    }
-    tcp = {
-      protocol = "tcp"
-      ports = ["80","443","2222","8443"]
-    }
-  }
+  allow_blocks = var.google_cloud.ingress_rules.allow_blocks
   
   // Deny Blocks
   // If you wanted to add deny blocks instead of (or in addition to) 
@@ -52,16 +45,16 @@ module "google_cloud_fw_ingress" {
 // Create the Google Cloud compute instances
 module "google_cloud_compute" {
   // Module Source
-  source                = "./modules/google_cloud/firewall"
+  source                = "./modules/google_cloud/compute"
 
   // Google Project Information
   google_project_id     = var.cloud_auth.google_project_id
   google_project_region = var.cloud_auth.google_project_region
 
   // Compute Resources
-  k3s_settings          = var.google_cloud.compute
-  ssh_username          = var.ssh_username
-  ssh_pubkey            = var.ssh_pubkey
+  compute_nodes         = var.google_cloud.compute
+  ssh_username          = var.ssh_auth.username
+  ssh_pubkey            = var.ssh_auth.pubkey
 
   // The Virtual Machines cannot be created until the networking is available.
   depends_on = [

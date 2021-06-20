@@ -2,7 +2,7 @@
 resource "google_compute_network" "vpc" {
   // Google Project to create the resources in
   project = var.google_project_id
-  name                    = "homelab_k3s"
+  name                    = var.vpc_name
   auto_create_subnetworks = false
 }
 

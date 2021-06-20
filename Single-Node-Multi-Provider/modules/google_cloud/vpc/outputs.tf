@@ -1,5 +1,5 @@
 output "vpc_name" {
-  value = google_compute_network.vpc.name
+  value = google_compute_network.vpc.id
 }
 
 output "public_subnet_ids" {

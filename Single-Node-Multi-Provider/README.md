@@ -24,8 +24,8 @@ Wanted to throw together an example of how someone might spin up Edge Cloud K3s 
   * [ ]  Document how to use the multi-droplet creation module
 * [ ] Google Cloud
   * [x] Create a network provisioning module
-  * [ ] Create a mutli-Compute creation module
-  * [ ] Ensure that `user-data` works as expected
+  * [x] Create a mutli-Compute creation module
+  * [x] Ensure that `user-data` works as expected
   * [ ] Document how to use both modules
 * [ ] AWS
   * [ ] Create a VPC/network provisioning module

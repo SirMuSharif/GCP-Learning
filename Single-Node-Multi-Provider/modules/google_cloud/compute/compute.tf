@@ -1,26 +1,27 @@
-// Create the Bastion VM on the PUBLIC subnet
-resource "google_compute_instance" "bastion" {
+// Create Compute VM's with the definied settings.
+resource "google_compute_instance" "compute_node" {
+  // Loop through each of the compute nodes
+  for_each = { for node in var.compute_nodes: node.name => node }
+
   // Google Project to create the resources in
-  project = var.google_project_id
+  project       = var.google_project_id
 
-  name = "bastion"
-  machine_type = var.bastion_settings["vm_type"]
-  zone = "${var.google_project_region}-a"
-
-  tags = [ "k3s", "public" ]
+  name          = each.value.name
+  machine_type  = each.value.vm_type
+  zone          = "${var.google_project_region}-${each.value.zone}"
+  tags          = each.value.tags
 
   boot_disk {
     initialize_params {
-      image = var.bastion_settings["host-os"]
-      size  = var.bastion_settings["boot_disk_size"]
+      image = each.value.host_os
+      size  = each.value.boot_disk_size
     }
   }
 
   network_interface {
-    subnetwork = var.bastion_settings["network"]["subnetwork"]
-
+    subnetwork = each.value.network.subnetwork
     access_config {
-      network_tier = var.bastion_settings["network"]["tier"]
+      network_tier = upper(each.value.network.tier)
     }
   }
 

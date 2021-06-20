@@ -7,6 +7,7 @@ variable "google_project_region" {
 }
 
 // Networking Stack
+variable "vpc_name" {}
 variable "vpc_public_subnets" {
   description = "The full networking stack. Describes everything necessary for the VPC."
 }

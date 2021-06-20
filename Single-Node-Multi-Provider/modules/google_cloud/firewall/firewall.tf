@@ -1,5 +1,4 @@
-// Create the INGRESS firewall for ingress TCP/22 and ICMP 
-// for the Bastion and internal hosts.
+// Create a firewall for whatever traffic is specified.
 resource "google_compute_firewall" "rules" {
   // Google Project to create the resources in
   project = var.google_project_id
