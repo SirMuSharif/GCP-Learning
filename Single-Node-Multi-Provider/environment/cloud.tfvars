@@ -61,3 +61,67 @@ google_cloud = {
     }
   ] 
 }
+
+aws = {
+  vpc = {
+    cidr_block = "172.29.0.0/16"
+  }
+  subnets = {
+    public = {
+      "1a" = {
+        name        = "1a"
+        cidr_block  = "172.29.0.0/24"
+      }
+    }
+  }
+  compute = [
+    {
+      "name"              = "tpi-k3s-aws-edge"
+      "instance_size"     = "t2.micro"
+      "subnet_id"         = "1a"
+      "root_volume_size"  = "20"
+    }
+  ]
+  security_groups = {
+    "k3s_ingress" = {
+      "name" = "k3s_inbound_traffic"
+      "description" = "Allows inbound traffic to the appropriate ports."
+      "ingress" = [
+        {
+          "description" = "SSH Inbound"
+          "port"        = 22
+          "protocol"    = "tcp"
+          "cidr_blocks" = "0.0.0.0/0"
+        },
+        {
+          "description" = "HTTP Inbound"
+          "port"        = 80
+          "protocol"    = "tcp"
+          "cidr_blocks" = "0.0.0.0/0"
+        },
+        {
+          "description" = "HTTPS Inbound"
+          "port"        = 443
+          "protocol"    = "tcp"
+          "cidr_blocks" = "0.0.0.0/0"
+        },
+        {
+          "description" = "SSH Alt Inbound"
+          "port"        = 2222
+          "protocol"    = "tcp"
+          "cidr_blocks" = "0.0.0.0/0"
+        },
+        {
+          "description" = "HTTPS Alt Inbound"
+          "port"        = 8443
+          "protocol"    = "tcp"
+          "cidr_blocks" = "0.0.0.0/0"
+        }
+      ]
+    }
+  }
+  tags = {
+    environment   = "homelab"
+    project_name  = "k3s-homelab"
+  }
+}

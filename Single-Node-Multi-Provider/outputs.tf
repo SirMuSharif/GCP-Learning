@@ -5,3 +5,7 @@ output "digitalocean_droplet_ips" {
 output "google_cloud_ips" {
   value = module.google_cloud_compute.ipv4
 }
+
+output "aws_cloud_ips" {
+  value = module.aws_compute.ipv4
+}

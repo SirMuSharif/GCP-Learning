@@ -13,9 +13,9 @@ Wanted to throw together an example of how someone might spin up Edge Cloud K3s 
 * [ ] General
   * [x] Create per-Cloud Provider files in this root directory
   * [ ] Document how to fill out the environment variables file
-  * [ ] Create documentation on **why** things are laid out the way they are
+  * [ ] Document **why** things are laid out the way they are
   * [ ] Document all of the {required tools,binaries,applications,etc} to get this running if you're not [me](mailto:daniel.a.manners@gmail.com)
-  * [ ] Update this `README` file to include how to setup, teardown, and generally use this repository.
+  * [ ] Update this `README` file to include how to setup, teardown, and generally use this repository
 * [ ] Digital Ocean
   * [x]  Create an SSH-Public Key Resource Module
   * [x]  Create a multi-droplet creation module
@@ -28,7 +28,7 @@ Wanted to throw together an example of how someone might spin up Edge Cloud K3s 
   * [x] Ensure that `user-data` works as expected
   * [ ] Document how to use both modules
 * [ ] AWS
-  * [ ] Create a VPC/network provisioning module
-  * [ ] Create a multi-EC2 creation module
-  * [ ] Ensure that `user-data` works as expected
+  * [x] Create a VPC/network provisioning modules
+  * [x] Create a multi-EC2 creation module
+  * [x] Ensure that `user-data` works as expected
   * [ ] Document how to use both modules
