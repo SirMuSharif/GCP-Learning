@@ -18,6 +18,6 @@ terraform {
 
   backend "gcs" {
     bucket  = "dm-homelab-tfstate"
-    prefix  = "terraform/state"
+    prefix  = "multi-cloud/state"
   }
 }
