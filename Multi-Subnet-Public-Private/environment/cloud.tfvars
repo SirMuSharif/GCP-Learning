@@ -40,3 +40,4 @@ k3s_settings = {
     "subnetwork" = "homelab-private-1a"
   }
 }
+# just testing Git

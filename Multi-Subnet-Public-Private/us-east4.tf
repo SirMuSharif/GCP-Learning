@@ -40,3 +40,5 @@ output "k3s-worker-private-ip" {
 output "proxyjump_command" {
   value = "ssh -qJ ${var.ssh_username}@${module.virtual_machines.bastion.public_ip} ${var.ssh_username}@${module.virtual_machines.k3s_worker.private_ip}"
 }
+
+# just testing git
